@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+port=4242
+
+fatal() {
+	printf "\033[1;31m[FATAL]\033[0m %s\n" "$@"
+	exit 1
+}
+
+success() {
+	printf "\033[1;32m[SUCCESS]\033[0m %s\n" "$@"
+	exit 0
+}
+
+info() {
+	printf "\033[1;36m[INFO]\033[0m %s\n" "$@"
+}
+
+main() {
+	local vm="inception"
+	local vm_status=`VBoxManage showvminfo ${vm} --machinereadable | grep "VMState=" | cut -f 2 -d '"'`
+
+	if [[ ${vm_status} == "running" ]]; then
+		success "virtual machine is already running!"
+	fi
+	vboxheadless --startvm=${vm} >/dev/null 2>/tmp/status &
+	info "starting virtual machine..."
+	until grep "100%" /tmp/status >/dev/null
+	do
+		sleep 0.1
+	done
+	rm -f /tmp/status >/dev/null 2>/dev/null
+	success "virtual machine is up and running!"
+}
+
+( main )
+info "attempting to ssh into virtual machine..."
+ssh -p${port} localhost || ssh -p${port} localhost || ssh -p${port} localhost || ssh -p${port} localhost
