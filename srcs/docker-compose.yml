@@ -1,0 +1,14 @@
+services:
+  nginx:
+    ports: 
+      - 443:443
+  wordpress:
+
+  mariadb:
+
+volumes:
+  db:
+
+  website:
+
+

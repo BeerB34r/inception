@@ -1,4 +1,5 @@
 FROM alpine:3.23
+RUN apk update
 RUN apk add build-base
 COPY hello.c .
 RUN gcc -o hello hello.c
