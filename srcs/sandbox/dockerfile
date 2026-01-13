@@ -2,4 +2,4 @@ FROM alpine:3.23
 RUN apk add build-base
 COPY hello.c .
 RUN gcc -o hello hello.c
-CMD ["./hello"]
+CMD ["./hello", "${foo}"]
