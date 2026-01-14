@@ -5,16 +5,19 @@ services:
       - 443:443
     networks:
       - orchestra
+    restart: always
 
   wordpress:
     build: ./wordpress
     networks:
       - orchestra
+    restart: always
 
   mariadb:
     build: ./mariadb
     networks:
       - orchestra
+    restart: always
 
 # volumes:
 #   db:
