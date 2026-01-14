@@ -3,29 +3,26 @@ services:
     build: ./nginx
     ports:
       - 443:443
-    # networks:
-      # - orchestra
+    networks:
+      - orchestra
 
-  # wordpress:
-    # build:
-      # dockerfile: "./wordpress/dockerfile"
-    # networks:
-      # - orchestra
+  wordpress:
+    build: ./wordpress
+    networks:
+      - orchestra
 
-  # mariadb:
-    # build:
-      # dockerfile: "./mariadb/dockerfile"
-    # networks:
-      # - orchestra
+  mariadb:
+    build: ./mariadb
+    networks:
+      - orchestra
 
 # volumes:
-  # db:
+#   db:
+#
+#   website:
 
-  # website:
-
-# networks:
-  # orchestra:
-    # driver: default
-    # name: "orchestra"
+networks:
+  orchestra:
+    name: "orchestra"
 
 

@@ -1,1 +1,3 @@
 FROM alpine:3.23
+RUN apk update && apk add curl git wget unzip zip
+RUN wget https://wordpress.org/latest.zip
