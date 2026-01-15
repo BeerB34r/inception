@@ -8,12 +8,18 @@ services:
     restart: always
     volumes:
       - website:/www
+    depends_on:
+      - wordpress
 
   wordpress:
     build: ./wordpress
     networks:
       - orchestra
     restart: always
+    volumes:
+      - website:/www
+    depends_on:
+      - mariadb
 
   mariadb:
     build: ./mariadb
