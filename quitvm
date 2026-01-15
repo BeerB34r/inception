@@ -22,7 +22,7 @@ main() {
 		success "virtual machine is not running!"
 	fi
 	VBoxManage controlvm ${vm} acpipowerbutton || fatal "error occurred while shutting down vm"
-	info "waiting for virtual machien to power off"
+	info "waiting for virtual machine to power off"
 	until VBoxManage showvminfo ${vm} --machinereadable | grep 'VMState="poweroff"' >/dev/null
 	do
 		echo -n "."
