@@ -20,6 +20,8 @@ services:
     networks:
       - orchestra
     restart: always
+    volumes:
+      - db:/var/lib/mysql
 
 volumes:
   website:
@@ -38,5 +40,3 @@ volumes:
 networks:
   orchestra:
     name: "orchestra"
-
-

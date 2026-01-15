@@ -1,8 +1,8 @@
 FROM alpine:3.23
-RUN apk update && apk add curl nginx
+RUN apk add --no-cache curl nginx
+# nginx user + ownership
 RUN adduser -D -g 'www' www
-RUN mkdir /www && \
-	chown -R www:www /var/lib/nginx && \
-	chown -R www:www /www
+RUN chown -R www:www /var/lib/nginx
 COPY ./nginx.conf /etc/nginx/nginx.conf
+# foreground nginx process
 CMD [ "nginx", "-g", "daemon off;" ]

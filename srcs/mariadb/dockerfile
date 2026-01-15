@@ -1,1 +1,10 @@
 FROM alpine:3.23
+RUN apk add --no-cache mariadb mariadb-client
+# mariadb install should've created the mysql user, which is used by mariadb
+# internally to do its thing in the /var/run/mysqld directory
+RUN mkdir /var/run/mysqld \
+	&& chown -R mysql:mysql /var/run/mysqld \
+	&& chmod 777 /var/run/mysqld
+# mariadb daemon bin, if ran as root requires you to specifically state you know
+# what you are doing, I.E: say you are the using the root user
+CMD ["mariadbd", "--user=root"]
