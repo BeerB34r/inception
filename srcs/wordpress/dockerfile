@@ -1,3 +1,4 @@
 FROM alpine:3.23
-RUN apk add --no-cache curl git wget unzip zip php php-fpm
-EXPOSE 9000
+RUN apk add --no-cache php84-fpm
+COPY www.conf /etc/php84/php-fpm.d/www.conf
+CMD ["php-fpm84", "-F"]

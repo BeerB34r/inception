@@ -1,48 +1,16 @@
 services:
   nginx:
-    build: ./nginx
+    build: nginx/
+    container_name: nginx
     ports:
-      - 443:443
-    networks:
-      - orchestra
-    restart: always
+      - "80:80"
     volumes:
-      - website:/www
-    depends_on:
-      - wordpress
-
+      - ./web:/var/www/html
   wordpress:
-    build: ./wordpress
-    networks:
-      - orchestra
-    restart: always
+    build: wordpress/
+    container_name: wp-php
     volumes:
-      - website:/www
-    depends_on:
-      - mariadb
-
+      - ./web:/var/www/html
   mariadb:
-    build: ./mariadb
-    networks:
-      - orchestra
-    restart: always
-    volumes:
-      - db:/var/lib/mysql
-
-volumes:
-  website:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/mde-beer/data/website
-      o: bind
-  db:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/mde-beer/data/db
-      o: bind
-
-networks:
-  orchestra:
-    name: "orchestra"
+    build: mariadb/
+    container_name: mariadb
