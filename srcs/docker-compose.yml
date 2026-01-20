@@ -5,12 +5,28 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./web:/var/www/html
+      - website:/var/www/html
   wordpress:
     build: wordpress/
     container_name: wp-php
     volumes:
-      - ./web:/var/www/html
+      - website:/var/www/html
   mariadb:
     build: mariadb/
     container_name: mariadb
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  website:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./web
+      o: bind
+  db:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./db
+      o: bind
