@@ -8,5 +8,4 @@ EXPOSE 9000
 COPY www.conf /etc/php84/php-fpm.d/www.conf
 COPY php.ini /etc/php84/php.ini
 COPY run_or_bootstrap.sh /
-CMD ["php-fpm84", "-F"]
 CMD [ "/run_or_bootstrap.sh" ]
