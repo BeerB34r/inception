@@ -49,18 +49,26 @@ all persistent data is stored in these directories.
 ## docker mini-tutorial
 check running containers:
 `docker ps`
+
 to create and access a shell in a running container:
 `docker exec -i <container> sh`
+
 to remove a running container:
 `docker rm <container>`
+
 check local images:
 `docker images`
+
 to remove an image:
 `docker rmi <image>`
+
 check local volumes:
 `docker volume ls`
+
 to remove a volume:
 `docker volume rm <volume>`
+
 for further information:
 `docker help`
+
 or run any of the previous commands with the `--help` flag
