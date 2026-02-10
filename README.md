@@ -35,7 +35,7 @@ eachother and the host than virtual machines do.
 Secrets and environment variables (when handled properly) solve the same
 problem, that is letting processes access protected resources (password
 protected databases for instance). The main difference is that secrets are often
-encrypted and environment variables tend not to be, and such are a bit less
+encrypted and environment variables tend not to be, and as such are a bit less
 secure. For the purposes of this project however, environment variables are
 sufficient.
 
@@ -56,10 +56,10 @@ bridging this gap and giving you essentially the best of both worlds.
 
 # Resources
 
-[Dockerfile reference documentation](docs.docker.com/reference/dockerfile)
-[Alpine linux wiki](wiki.alpinelinux.org/wiki)
-[Nginx documentation](nginx.org/en/docs)
-[Wordpress documentation](wordpress.org/documentation)
-[Mariadb documentation](mariadb.com/docs)
+- [Dockerfile reference documentation](docs.docker.com/reference/dockerfile)
+- [Alpine linux wiki](wiki.alpinelinux.org/wiki)
+- [Nginx documentation](nginx.org/en/docs)
+- [Wordpress documentation](wordpress.org/documentation)
+- [Mariadb documentation](mariadb.com/docs)
 
 AI was not used for this project. RTFM.
