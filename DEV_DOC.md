@@ -29,7 +29,7 @@ docker compose --project-directory srcs down
 and finally to clean:
 ```sh
 docker compose --project-directory srcs down --rmi local
-sudo rm -rf /home/<username>/data
+sudo rm -rf /home/mde-beer/data
 ```
 
 to change the data directory to somewhere else, edit the variables
