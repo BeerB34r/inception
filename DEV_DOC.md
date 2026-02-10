@@ -42,7 +42,8 @@ file `srcs/docker-compose.yml`.
 `WP_DIR` and `volumes.website.driver_opts.device` should match.
 
 if you are running the project manually (using docker compose), replace the
-argument to mkdir with your new directories.
+final arguments to `mkdir` with your new directories.
+
 all persistent data is stored in these directories.
 
 ## docker mini-tutorial
