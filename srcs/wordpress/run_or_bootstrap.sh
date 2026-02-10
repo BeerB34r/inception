@@ -12,7 +12,7 @@ _bootstrap() {
 		--dbname="${WORDPRESS_DB_NAME}" \
 		--dbuser="${WORDPRESS_ADMIN_USER}" \
 		--dbpass="${WORDPRESS_ADMIN_PASSWORD}" \
-		--dbhost="${WORDPRESS_DB_HOST}"
+		--dbhost="mariadb:3306"
 	wp core install \
 		--url=localhost \
 		--title=Inception \
