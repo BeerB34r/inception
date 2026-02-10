@@ -6,6 +6,6 @@ RUN mkdir /var/run/mysqld \
 	&& chown -R mysql:mysql /var/run/mysqld \
 	&& chmod 777 /var/run/mysqld
 EXPOSE 3306
-# mariadb daemon bin, if ran as root requires you to specifically state you know
-# what you are doing, I.E: say you are the using the root user
-CMD ["mariadbd", "--user=root"]
+COPY ./bootstrap_or_run.sh /
+COPY ./mariadb-server.cnf /etc/my.cnf.d
+CMD ["/bootstrap_or_run.sh"]

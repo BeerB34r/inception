@@ -3,30 +3,52 @@ services:
     build: nginx/
     container_name: nginx
     ports:
-      - "80:80"
+      - 80:80
+      - 443:443
     volumes:
       - website:/var/www/html
+    depends_on:
+      - wordpress
+      - mariadb
+    restart: unless-stopped
+    networks:
+      - orchestra
+
   wordpress:
     build: wordpress/
     container_name: wp-php
     volumes:
       - website:/var/www/html
+    env_file: ../.env
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+    networks:
+      - orchestra
+
   mariadb:
     build: mariadb/
     container_name: mariadb
     volumes:
       - db:/var/lib/mysql
+    env_file: ../.env
+    restart: unless-stopped
+    networks:
+      - orchestra
 
 volumes:
   website:
     driver: local
     driver_opts:
       type: none
-      device: ./web
+      device: /home/mde-beer/data/website
       o: bind
   db:
     driver: local
     driver_opts:
       type: none
-      device: ./db
+      device: /home/mde-beer/data/db
       o: bind
+
+networks:
+  orchestra:
