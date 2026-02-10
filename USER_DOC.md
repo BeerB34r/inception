@@ -28,7 +28,7 @@ To stop the project and delete persistent data, run `make clean`.
 
 Once the project is up and running, you can access the website through
 `https://localhost:443` (`https://mde-beer.42.fr:443` if `/etc/hosts` is
-correctly configured, see `DEV_DOC.md` for how to configured `/etc/hosts`).
+correctly configured, see `DEV_DOC.md` for how to configure `/etc/hosts`).
 
 Your browser will say it is unsafe, ignore it.
 
@@ -54,7 +54,7 @@ built upon the Alpine Linux distribution, which is minimal by design. Alpine was
 chosen to reduce file sizes. It is otherwise arbitrary what Linux distribution
 (OS) to use for the project.
 ## Nginx
-Pronounced "engine x", nginx is a webserver. this means that it listens to
+Pronounced "engine x", nginx is a webserver. This means that it listens to
 incoming traffic, and asks the other services to fulfill the requests it
 recieves from the end user.
 ## Mariadb

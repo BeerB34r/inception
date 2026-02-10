@@ -18,8 +18,8 @@ server name, you might as well change it in `/etc/hosts` as well.
 
 if for some god-forsaken reason you want to run the project directly, run:
 ```sh
-mkdir -p /home/<username>/data/db
-mkdir -p /home/<username>/data/website
+mkdir -p /home/mde-beer/data/db
+mkdir -p /home/mde-beer/data/website
 docker compose --project-directory srcs up -d
 ```
 and to close:
@@ -35,9 +35,14 @@ sudo rm -rf /home/<username>/data
 to change the data directory to somewhere else, edit the variables
 `DB_DIR` and `WP_DIR` in the file `makefile`, and the values of
 `volumes.website.driver_opts.device` and `volumes.db.driver_opts.device` in the
-file `srcs/docker-compose.yml`
-`DB_DIR` and `volumes.db.driver_opts.device` should match
-`WP_DIR` and `volumes.website.driver_opts.device` should match
+file `srcs/docker-compose.yml`.
+
+`DB_DIR` and `volumes.db.driver_opts.device` should match.
+
+`WP_DIR` and `volumes.website.driver_opts.device` should match.
+
+if you are running the project manually (using docker compose), replace the
+argument to mkdir with your new directories.
 all persistent data is stored in these directories.
 
 ## docker mini-tutorial
