@@ -7,8 +7,6 @@ all: up
 up:
 	mkdir -p $(DB_DIR)
 	mkdir -p $(WP_DIR)
-	if [ ! -f $(WP_DIR)/index.html ]; then echo "<h1> It works! </h1>" >$(WP_DIR)/index.html; fi
-	if [ ! -f $(WP_DIR)/info.php ]; then echo "<?php phpinfo(); ?>" >$(WP_DIR)/info.php; fi
 	docker compose --project-directory srcs up -d 
 
 down:
