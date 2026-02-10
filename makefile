@@ -10,10 +10,10 @@ up:
 	docker compose --project-directory srcs up -d 
 
 down:
-	docker compose --project-directory srcs down --rmi local
+	docker compose --project-directory srcs down
 
 clean:
-	$(MAKE) down
+	docker compose --project-directory srcs down --rmi local
 	sudo $(RM) $(DB_DIR) $(WP_DIR)
 
 re:
